@@ -48,7 +48,7 @@ local function setup_tag_configs()
     TagConfigs:add(html_tag_cfg:extend("latex", {
         start_tag_pattern = { "\\begin{" },
         start_name_tag_pattern = { "name" },
-        end_tag_pattern = { "\\{end" },
+        end_tag_pattern = { "\\end{" },
         end_name_tag_pattern = { "name" },
     }))
 
