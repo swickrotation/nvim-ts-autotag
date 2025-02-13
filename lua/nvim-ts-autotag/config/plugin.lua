@@ -42,6 +42,15 @@ local function setup_tag_configs()
         start_tag_pattern = { "STag" },
         end_tag_pattern = { "ETag" },
     }))
+    
+    -- Support LaTeX .tex files.
+    -- LaTeX is a markup language used extensively in the academic community.
+    TagConfigs:add(html_tag_cfg:extend("latex", {
+        start_tag_pattern = { "begin" },
+        start_name_tag_pattern = { "name" },
+        end_tag_pattern = { "end" },
+        end_name_tag_pattern = { "name" },
+    }))
 
     -- Support Elixir HEEX files.
     -- HEEX is simply HTML with the addition of the <.component></.component> syntax.
@@ -148,6 +157,7 @@ local Setup = {
         ["php"] = "html",
         ["twig"] = "html",
         ["blade"] = "html",
+        ["latex"] = "html",
         ["elixir"] = "heex",
         ["javascriptreact"] = "typescriptreact",
         ["javascript.jsx"] = "typescriptreact",
