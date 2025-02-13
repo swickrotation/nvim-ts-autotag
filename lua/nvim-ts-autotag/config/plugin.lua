@@ -43,16 +43,6 @@ local function setup_tag_configs()
         end_tag_pattern = { "ETag" },
     }))
     
-    -- Support LaTeX .tex files.
-    -- LaTeX is a markup language used extensively in the academic community.
-    TagConfigs:add(html_tag_cfg:extend("latex", {
-        start_tag_pattern = { "begin" },
-        start_name_tag_pattern = { "text", "word" },
-        end_tag_pattern = { "end" },
-        end_name_tag_pattern = { "text", "word" },
-        skip_tag_pattern = { "name" },
-    }))
-
     -- Support Elixir HEEX files.
     -- HEEX is simply HTML with the addition of the <.component></.component> syntax.
     TagConfigs:add(html_tag_cfg:extend("heex", {
@@ -132,6 +122,19 @@ local function setup_tag_configs()
     }))
 end
 
+    TagConfigs:add(base_cfg:extend("tex", {
+        start_tag_pattern = { "begin" },
+        start_name_tag_pattern = { "text" },
+        end_tag_pattern = { "end" },
+        end_name_tag_pattern = { "text" },
+        close_tag_pattern = { "end" },
+        close_name_tag_pattern = { "text" },
+        element_tag = { "generic_environment" },
+        skip_tag_pattern = { "end", "begin", "curly_group",  "word"},
+    }))
+end
+
+
 ---@class nvim-ts-autotag.Opts
 ---@field enable_rename boolean? Whether or not to auto rename paired tags
 ---@field enable_close boolean? Whether or not to auto close tags
@@ -158,7 +161,6 @@ local Setup = {
         ["php"] = "html",
         ["twig"] = "html",
         ["blade"] = "html",
-        ["latex"] = "latex",
         ["elixir"] = "heex",
         ["javascriptreact"] = "typescriptreact",
         ["javascript.jsx"] = "typescriptreact",
@@ -169,6 +171,7 @@ local Setup = {
         ["handlebars"] = "glimmer",
         ["hbs"] = "glimmer",
         ["rust"] = "rust",
+        ["latex"] = "tex",
     },
     per_filetype = {},
 }
