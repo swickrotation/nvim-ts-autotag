@@ -45,7 +45,7 @@ local function setup_tag_configs()
     
     -- Support LaTeX .tex files.
     -- LaTeX is a markup language used extensively in the academic community.
-    TagConfigs:add(html_tag_cfg:extend("latex", {
+    TagConfigs:add(html_tag_cfg:extend("tex", {
         start_tag_pattern = { "begin" },
         start_name_tag_pattern = { "text", "word" },
         end_tag_pattern = { "end" },
@@ -158,7 +158,7 @@ local Setup = {
         ["php"] = "html",
         ["twig"] = "html",
         ["blade"] = "html",
-        ["latex"] = "html",
+        ["tex"] = "html",
         ["elixir"] = "heex",
         ["javascriptreact"] = "typescriptreact",
         ["javascript.jsx"] = "typescriptreact",
