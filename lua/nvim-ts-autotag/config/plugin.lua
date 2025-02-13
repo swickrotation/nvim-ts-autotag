@@ -126,8 +126,8 @@ local function setup_tag_configs()
         start_name_tag_pattern = { "text" },
         end_tag_pattern = { "end" },
         end_name_tag_pattern = { "text" },
-        element_tag = { "generic_environment" },
-        skip_tag_pattern = { "line_comment", "end", "curly_group_text",  "word"},
+        element_tag = { "generic_environment", "math_environment" },
+        skip_tag_pattern = { "curly_group_text",  "word" },
     }))
 end
 
