@@ -45,13 +45,13 @@ local function setup_tag_configs()
     
     -- Support LaTeX .tex files.
     -- LaTeX is a markup language used extensively in the academic community.
-    TagConfigs:add(html_tag_cfg:extend("tex", {
+    --[[TagConfigs:add(html_tag_cfg:extend("tex", {
         start_tag_pattern = { "begin" },
         start_name_tag_pattern = { "text", "word" },
         end_tag_pattern = { "end" },
         end_name_tag_pattern = { "text", "word" },
         skip_tag_pattern = { "name" },
-    }))
+    }))]]--
 
     -- Support Elixir HEEX files.
     -- HEEX is simply HTML with the addition of the <.component></.component> syntax.
@@ -158,7 +158,7 @@ local Setup = {
         ["php"] = "html",
         ["twig"] = "html",
         ["blade"] = "html",
-        ["tex"] = "html",
+        ["latex"] = "html",
         ["elixir"] = "heex",
         ["javascriptreact"] = "typescriptreact",
         ["javascript.jsx"] = "typescriptreact",
