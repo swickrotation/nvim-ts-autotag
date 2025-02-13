@@ -120,8 +120,7 @@ local function setup_tag_configs()
         element_tag = { "element_node" },
         skip_tag_pattern = { "close_tag", "node_attribute", "block" },
     }))
-end
-
+    
     TagConfigs:add(base_cfg:extend("tex", {
         start_tag_pattern = { "begin" },
         start_name_tag_pattern = { "text" },
@@ -133,7 +132,6 @@ end
         skip_tag_pattern = { "end", "begin", "curly_group",  "word"},
     }))
 end
-
 
 ---@class nvim-ts-autotag.Opts
 ---@field enable_rename boolean? Whether or not to auto rename paired tags
