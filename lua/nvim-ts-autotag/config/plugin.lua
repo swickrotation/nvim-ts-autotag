@@ -47,9 +47,10 @@ local function setup_tag_configs()
     -- LaTeX is a markup language used extensively in the academic community.
     TagConfigs:add(html_tag_cfg:extend("latex", {
         start_tag_pattern = { "begin" },
-        start_name_tag_pattern = { "text" },
+        start_name_tag_pattern = { "text", "word" },
         end_tag_pattern = { "end" },
-        end_name_tag_pattern = { "text" },
+        end_name_tag_pattern = { "text", "word" },
+        skip_tag_pattern = { "name" },
     }))
 
     -- Support Elixir HEEX files.
