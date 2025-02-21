@@ -128,7 +128,7 @@ local function setup_tag_configs()
         end_tag_pattern = { "end" },
         end_name_tag_pattern = { "text" },
         element_tag = { "generic_environment", "math_environment" },
-        skip_tag_pattern = { "curly_group_text", "word" },
+        skip_tag_pattern = { "name", "word" },
     }))
 end
 
@@ -195,7 +195,9 @@ function Setup.setup(opts)
         )
         opts = {
             ---@diagnostic disable-next-line: assign-type-mismatch
-            opts = opts,
+            setup = {},
+            get_opts = {},
+            did_setup = {},
         }
     end
     Setup = vim.tbl_deep_extend("force", Setup, opts or {})
