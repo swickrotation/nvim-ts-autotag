@@ -42,7 +42,7 @@ local function setup_tag_configs()
         start_tag_pattern = { "STag" },
         end_tag_pattern = { "ETag" },
     }))
-    
+
     -- Support Elixir HEEX files.
     -- HEEX is simply HTML with the addition of the <.component></.component> syntax.
     TagConfigs:add(html_tag_cfg:extend("heex", {
@@ -120,14 +120,15 @@ local function setup_tag_configs()
         element_tag = { "element_node" },
         skip_tag_pattern = { "close_tag", "node_attribute", "block" },
     }))
-    
+
+    -- Add LaTeX support. LaTeX is a markup language commonly used by academics.
     TagConfigs:add(base_cfg:extend("tex", {
         start_tag_pattern = { "begin" },
         start_name_tag_pattern = { "text" },
         end_tag_pattern = { "end" },
         end_name_tag_pattern = { "text" },
         element_tag = { "generic_environment", "math_environment" },
-        skip_tag_pattern = { "curly_group_text",  "word" },
+        skip_tag_pattern = { "curly_group_text", "word" },
     }))
 end
 
